@@ -1,0 +1,61 @@
+.header
+  position: fixed
+  top: 0
+  width: 100%
+  height: var(--gap-400)
+  z-index: 10
+
+  &--content
+    width: 100%
+
+  &--logo
+    fill: var(--color-primary-100)
+    height: var(--gap-350)
+    aspect-ratio: 1
+
+  &--nav
+    font-size: var(--gap-200)
+    font-family: 'JetBrains Mono', monospace
+    text-transform: uppercase
+
+  a
+    padding: 0 var(--gap-150)
+    color: var(--color-primary-100)
+
+    span
+      transition: color 0.5s cubic-bezier(0.45, 0, 0.55, 1)
+
+    i
+      aspect-ratio: 1
+      width: var(--gap-250)
+      overflow: hidden
+      position: relative
+
+      > *
+        position: absolute
+        width: 100%
+        height: calc(100% + var(--gap-200))
+        top: calc(var(--gap-100) * -1)
+        transition: transform 0.5s cubic-bezier(0.45, 0, 0.55, 1)
+
+        &:last-child
+          transform: translateY(100%)
+
+    &:hover,
+    &.is--active
+      i
+        > *
+          transform: translateY(-100%)
+
+          &:last-child
+            transform: translateY(0)
+
+      span
+        color: var(--color-primary-800)
+
+      .header--logo
+        fill: var(--color-primary-800)
+
+
+
+

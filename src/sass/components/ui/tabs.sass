@@ -1,0 +1,28 @@
+.tabs
+  &--nav
+    box-shadow: 0 var(--gap-050) var(--gap-200) var(--color-grey-200)
+    display: inline-flex
+    border: 1px solid var(--color-grey-200)
+    border-radius: var(--gap-100)
+
+    &-item
+      padding: var(--gap-150) var(--gap-250)
+      cursor: pointer
+      font-size: var(--gap-150)
+      text-transform: uppercase
+
+      @media screen and (max-width: 1024px) and (orientation: portrait)
+        padding: var(--gap-100) var(--gap-200)
+
+      &:not(:last-child)
+        border-right: 1px solid var(--color-grey-200)
+
+      &.is--active
+        color: var(--color-primary)
+
+      &:hover
+        background-color: var(--color-primary-100)
+        color: var(--color-primary-700)
+
+
+

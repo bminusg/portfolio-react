@@ -1,0 +1,27 @@
+@use '../utils/variables' as *
+
+:root
+  --color-grey-000: #ffffff
+  --color-grey-100: #f8f9fa
+  --color-grey-200: #e9ecef
+  --color-grey-300: #dee2e6
+  --color-grey-400: #ced4da
+  --color-grey-500: #adb5bd
+  --color-grey-600: #6c757d
+  --color-grey-700: #495057
+  --color-grey-800: #343a40
+  --color-grey-900: #212529
+
+  --color-primary: #77cca4
+  --color-primary-100: #e5f5ec
+  --color-primary-200: #cbebda
+  --color-primary-300: #b0e1c8
+  --color-primary-400: #95d6b6
+  --color-primary-500: #77cca4
+  --color-primary-600: #579779
+  --color-primary-700: #386550
+  --color-primary-800: #1c372b
+  --color-primary-900: #050f0a
+
+  @each $key, $value in $gaps
+    --gap-#{$key}: #{$value}

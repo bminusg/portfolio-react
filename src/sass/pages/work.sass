@@ -1,0 +1,80 @@
+.work
+
+  --x1: 50%
+  --y1: 50%
+  --x2: 50%
+  --y2: 50%
+  --x3: 50%
+  --y3: 50%
+  --x4: 50%
+  --y4: 50%
+
+  &--layer
+    position: fixed
+    top: 0
+    left: 0
+    width: 100vw
+    height: 100vh
+    z-index: 50
+    clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%)
+    background-color: var(--color-primary-100)
+    animation-fill-mode: forwards
+    transition: clip-path 0.5s ease-in-out
+    overflow: hidden
+
+
+    &.is--expand
+      animation-name: workClipIn
+      animation-duration: 1.5s
+      animation-timing-function: linear
+
+    &.is--collapse
+      animation: workFadeOut 1s ease-in-out
+
+
+    &-preview
+      flex: 1.5
+      position: relative
+
+    &-content
+      margin-top: 33vh
+      padding: var(--gap-400)
+      background-color: var(--color-grey-100)
+      border-radius: var(--gap-250)
+      flex: 1
+
+    &-img
+      position: absolute
+      width: 100%
+      height: 100%
+      object-fit: cover
+      object-position: center
+
+
+@keyframes workClipIn
+  0%
+    clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%)
+
+  5%
+    clip-path: polygon(50% calc( 50% - 6px ), 50% calc( 50% - 6px ), 50% calc( 50% + 6px ), 50% calc( 50% + 6px ))
+    animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1)
+
+  50%
+    clip-path: polygon(25% calc( 50% - 6px ), 75% calc( 50% - 6px ), 75% calc( 50% + 6px ), 25% calc( 50% + 6px ))
+    animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1)
+
+  100%
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%)
+
+@keyframes workFadeOut
+  0%
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%)
+
+  50%
+    clip-path: polygon(25% calc( 50% - 6px ), 75% calc( 50% - 6px ), 75% calc( 50% + 6px ), 25% calc( 50% + 6px ))
+
+  95%
+    clip-path: polygon(50% calc( 50% - 6px ), 50% calc( 50% - 6px ), 50% calc( 50% + 6px ), 50% calc( 50% + 6px ))
+
+  100%
+    clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%)

@@ -1,0 +1,30 @@
+.footer
+  position: fixed
+  bottom: 0
+  width: 100%
+  height: var(--gap-400)
+  font-size: var(--gap-150)
+  z-index: 10
+
+  a
+    color: var(--color-primary-800)
+
+    &:hover
+      color: var(--color-primary-100)
+
+
+  &--imprint
+    &-layer
+      position: absolute
+      pointer-events: none
+      bottom: var(--gap-400)
+      transform: translateY(var(--gap-400))
+      opacity: 0
+      transition: transform 0.5s cubic-bezier(0.45, 0, 0.55, 1), opacity 0.5s cubic-bezier(0.45, 0, 0.55, 1)
+
+      strong
+        font-weight: 700
+
+      &.is--open
+        transform: translateY(0)
+        opacity: 1

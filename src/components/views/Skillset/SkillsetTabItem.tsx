@@ -1,0 +1,54 @@
+import React, { useEffect, useRef, useState } from "react";
+import type { Skill } from "./index.tsx";
+
+export const SkillsetTabItem: React.FC<Skill> = ({ level, label, id }) => {
+	const [displayLevel, setDisplayLevel] = useState(0);
+	const animationRef = useRef<number | null>(null);
+
+	useEffect(() => {
+		let start: number | null = null;
+
+		const animate = (timestamp: number) => {
+			if (!start) start = timestamp;
+
+			const progress = timestamp - start;
+			const duration = 600;
+			const nextLevel = Math.min(
+				Math.floor((progress / duration) * level),
+				level,
+			);
+
+			setDisplayLevel(nextLevel);
+
+			if (nextLevel < level) {
+				animationRef.current = requestAnimationFrame(animate);
+			}
+		};
+
+		animationRef.current = requestAnimationFrame(animate);
+
+		return () => {
+			if (animationRef.current) cancelAnimationFrame(animationRef.current);
+		};
+	}, [level]);
+
+	return (
+		<li className="skills--list-item">
+			<div
+				className="skills--list-item__icon flex items-center justify-center"
+				title={label}
+			>
+				<img src={`/img/icons/${id}.svg`} alt={label} />
+			</div>
+			<div className="skills--bar">
+				<span>
+					<span style={{ width: `${displayLevel}%` }}></span>
+				</span>
+			</div>
+			<div className="skills--list-item__level flex items-center gap-100">
+				<h3>{displayLevel}</h3>
+				<span>%</span>
+			</div>
+		</li>
+	);
+};

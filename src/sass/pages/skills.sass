@@ -1,0 +1,39 @@
+.skills
+  &--content
+    flex-wrap: wrap
+    max-width: var(--gap-900)
+
+    > *
+      flex: 1 1 var(--gap-750)
+
+  &--txt
+    p
+      color: var(--color-grey-600)
+
+  &--list
+    &-item
+      display: grid
+      gap: var(--gap-200)
+      grid-template-columns: var(--gap-400) auto var(--gap-450)
+      padding: var(--gap-250) 0
+      align-items: center
+
+      &__icon
+        img
+          max-height: var(--gap-300)
+
+
+  &--bar
+    display: flex
+    align-items: center
+    position: relative
+
+    span
+      position: absolute
+      width: 100%
+      height: var(--gap-100)
+      background-color: var(--color-grey-200)
+      border-radius: var(--gap-050)
+
+      span
+        background-color: var(--color-primary)

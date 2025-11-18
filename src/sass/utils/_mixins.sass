@@ -1,0 +1,47 @@
+@use '../utils/variables' as *
+
+@mixin generate-spacing($property)
+  $prefix: if($property == 'margin', 'm', 'p')
+
+  .#{$prefix}
+    @each $key, $value in $gaps
+      &-#{$key}
+        #{$property}: var(--gap-#{$key})
+
+    // Top
+    &t
+      @each $key, $value in $gaps
+        &-#{$key}
+          #{$property}-top: var(--gap-#{$key})
+
+    // Right
+    &r
+      @each $key, $value in $gaps
+        &-#{$key}
+          #{$property}-right: var(--gap-#{$key})
+
+    // Bottom
+    &b
+      @each $key, $value in $gaps
+        &-#{$key}
+          #{$property}-bottom: var(--gap-#{$key})
+
+    // Left
+    &l
+      @each $key, $value in $gaps
+        &-#{$key}
+          #{$property}-left: var(--gap-#{$key})
+
+    // Horizontal (x-axis)
+    &x
+      @each $key, $value in $gaps
+        &-#{$key}
+          #{$property}-left: var(--gap-#{$key})
+          #{$property}-right: var(--gap-#{$key})
+
+    // Vertical (y-axis)
+    &y
+      @each $key, $value in $gaps
+        &-#{$key}
+          #{$property}-top: var(--gap-#{$key})
+          #{$property}-bottom: var(--gap-#{$key})
