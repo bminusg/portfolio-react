@@ -86,7 +86,7 @@ function App() {
 					id="skillset"
 					className={`section ${views.skillset.isActive && "is--active"} skills`}
 				>
-					<SkillsetView isActive={views.skillset.isActive} />
+					<SkillsetView />
 				</div>
 				<div
 					id="work"
@@ -98,7 +98,7 @@ function App() {
 					id="contact"
 					className={`section ${views.contact.isActive && "is--active"} contact flex items-center`}
 				>
-					<ContactView isActive={views.contact.isActive} />
+					<ContactView />
 				</div>
 			</main>
 			<Footer />
