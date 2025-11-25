@@ -24,6 +24,7 @@ export const CoverView = ({ isActive }: { isActive: boolean }) => {
 				preload="auto"
 				className="video"
 			/>
+			<div className="content"></div>
 			<div className="home--content content flex flex-col gap-200 justify-center items-center">
 				<p className="mono">
 					Hi, my name is Benny Gebauer, and I am a passionate
