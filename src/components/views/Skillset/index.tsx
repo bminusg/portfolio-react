@@ -5,13 +5,34 @@ import "@sass/pages/skills.sass";
 
 import type { TabsItem } from "../../ui/Tabs.tsx";
 
+export type SkillID =
+	| "vue"
+	| "react"
+	| "js"
+	| "ts"
+	| "html"
+	| "css"
+	| "sass"
+	| "node"
+	| "drizzle"
+	| "supabase"
+	| "postgres"
+	| "php"
+	| "figma"
+	| "ps"
+	| "ai"
+	| "ae"
+	| "git"
+	| "jira"
+	| "confluence";
+
 export interface Skill {
-	id: string;
+	id: SkillID;
 	label: string;
 	level: number;
 }
 
-export const SkillsetView = ({ isActive }: { isActive: boolean }) => {
+export const SkillsetView = () => {
 	const now = new Date();
 	const ageOfEngineering = new Date(2016, 0, 1);
 	const yearsOfExperience = now.getFullYear() - ageOfEngineering.getFullYear();
