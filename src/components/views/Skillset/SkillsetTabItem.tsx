@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import type { Skill } from "./index.tsx";
+import { Icon } from "@/components/ui/Icon.tsx";
 
 export const SkillsetTabItem: React.FC<Skill> = ({ level, label, id }) => {
 	const [displayLevel, setDisplayLevel] = useState(0);
@@ -38,7 +39,7 @@ export const SkillsetTabItem: React.FC<Skill> = ({ level, label, id }) => {
 				className="skills--list-item__icon flex items-center justify-center"
 				title={label}
 			>
-				<img src={`/img/icons/${id}.svg`} alt={label} />
+				<Icon name={id} fill="var(--color-grey-500)" size="var(--gap-300)" />
 			</div>
 			<div className="skills--bar">
 				<span>
