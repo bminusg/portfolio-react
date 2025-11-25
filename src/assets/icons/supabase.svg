@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Ebene_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 109 113" width="1em" height="1em">
+  <defs>
+    <style>
+      .st00 {
+        fill: url(#gradientSupabase);
+      }
+
+      .st1 {
+        fill: currentColor;
+      }
+
+      .st2 {
+        fill: currentColor;
+      }
+    </style>
+    <linearGradient id="gradientSupabase" x1="52.27" y1="91.98" x2="70.59" y2="57.48" gradientTransform="translate(0 114) scale(1 -1)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000" stop-opacity="0.4"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <path class="st2" d="M63.71,110.28c-2.86,3.6-8.66,1.63-8.73-2.97l-1.01-67.25h45.22c8.19,0,12.76,9.46,7.67,15.87l-43.15,54.35Z"/>
+  <path class="st00" d="M63.71,110.28c-2.86,3.6-8.66,1.63-8.73-2.97l-1.01-67.25h45.22c8.19,0,12.76,9.46,7.67,15.87l-43.15,54.35Z"/>
+  <path class="st1" d="M45.32,2.07c2.86-3.6,8.66-1.63,8.73,2.97l.44,67.25H9.83c-8.19,0-12.76-9.46-7.67-15.87L45.32,2.07Z"/>
+</svg>
