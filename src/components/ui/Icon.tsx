@@ -9,11 +9,12 @@ export interface IconProps {
 
 const icons = import.meta.glob("/src/assets/icons/*.svg", {
 	eager: true,
-	as: "raw",
+	query: "?raw",
+	import: "default",
 });
 
 export const Icon = ({ name, fill, size, title }: IconProps) => {
-	const svg = icons[`/src/assets/icons/${name}.svg`];
+	const svg = icons[`/src/assets/icons/${name}.svg`] as string;
 
 	return (
 		<i
