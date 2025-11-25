@@ -4,7 +4,6 @@ export interface ButtonProps {
 	children: React.ReactNode;
 	variant: "solid" | "outline" | "ghost";
 	color: "primary" | "neutral";
-	link?: string;
 	size?: "sm" | "md" | "lg";
 	onClick?: () => void;
 }
