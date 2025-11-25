@@ -1,4 +1,4 @@
-export const ContactView = ({ isActive }: { isActive: boolean }) => {
+export const ContactView = () => {
 	return (
 		<div className="content flex flex-col gap-200 items-center">
 			<h2>Let's work together</h2>
