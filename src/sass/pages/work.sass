@@ -1,15 +1,68 @@
 .work
+  &--list
+    background-image: url("/img/work--layer-landscape-grey.png")
+    background-size: cover
+    background-position: center bottom
+    background-color: var(--color-grey-900)
+    position: absolute
+    width: 100%
+    height: 100%
+    display: grid
+    grid-template-columns: repeat(auto-fit, minmax(var(--gap-650), 1fr))
 
-  --x1: 50%
-  --y1: 50%
-  --x2: 50%
-  --y2: 50%
-  --x3: 50%
-  --y3: 50%
-  --x4: 50%
-  --y4: 50%
+    &-item
+      background-color: rgb(#050f0a, 0.5)
+      position: relative
+      cursor: pointer
+      overflow: hidden
+      transition: background-color 0.5s ease-in-out
+      padding: var(--gap-450) var(--gap-250)
+      border-bottom: 1px solid rgba(255,255,255, 0.1)
+
+      @media screen and (orientation: portrait)
+        padding: var(--gap-250)
+
+      &:not(:last-child)
+        border-right: 1px solid rgba(255,255,255, 0.1)
+
+      img
+        position: absolute
+        width: 100%
+        height: 100%
+        object-fit: cover
+        object-position: center
+        transform: scale(1.1)
+        transition: transform 0.5s ease-in-out
+
+      &:hover
+        background-color: rgb(#050f0a, 0)
+
+        img
+          transform: scale(1)
+
+    &-content
+      max-width: 100%
+
+      h3,
+      small
+        color: var(--color-primary-200)
+        line-height: 1
+
+      small
+        width: calc(100%)
+        overflow: hidden
+        white-space: nowrap
+        text-overflow: ellipsis
+        display: inline-block
+
+
+
 
   &--layer
+    background-color: var(--color-primary-900)
+    background-image: url("/img/work--layer-landscape.png")
+    background-size: cover
+    background-position: center bottom
     position: fixed
     top: 0
     left: 0
@@ -17,31 +70,66 @@
     height: 100vh
     z-index: 50
     clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%)
-    background-color: var(--color-primary-100)
     animation-fill-mode: forwards
-    transition: clip-path 0.5s ease-in-out
+    animation-timing-function: linear
     overflow: hidden
 
+    @media screen and (orientation: portrait)
+      flex-direction: column
 
     &.is--expand
       animation-name: workClipIn
       animation-duration: 1.5s
-      animation-timing-function: linear
+
+      .work--layer-content
+        animation: fadeIn 1s cubic-bezier(0.5, 0, 0.75, 0) 1s forwards
 
     &.is--collapse
-      animation: workFadeOut 1s ease-in-out
+      animation-name: workFadeOut
+      animation-duration: 1.5s
 
+      .work--layer-content
+        animation: fadeOut 0.4s cubic-bezier(0.5, 0, 0.75, 0) 0s forwards
 
     &-preview
-      flex: 1.5
+      flex: 1
       position: relative
 
     &-content
-      margin-top: 33vh
-      padding: var(--gap-400)
-      background-color: var(--color-grey-100)
-      border-radius: var(--gap-250)
+      background-color: var(--color-grey-000)
+      color: var(--color-grey-800)
+      padding: var(--gap-300) var(--gap-300) var(--gap-400) var(--gap-300)
       flex: 1
+      border-radius: var(--gap-200) var(--gap-200) 0 0
+      opacity: 0
+      max-height: 50vh
+      gap: var(--gap-200)
+
+      h3
+        line-height: 1
+        font-size: var(--gap-300)
+
+      @media screen and (orientation: landscape)
+        margin-top: 33vh
+        max-height: 67vh
+        border-radius: var(--gap-200) 0 0 0
+        padding: var(--gap-400)
+        gap: var(--gap-300)
+
+        h3
+          font-size: var(--gap-400)
+
+      &__desc
+        flex: 1
+        overflow-y: auto
+
+      &__footer
+        justify-content: flex-start
+
+        @media screen and (orientation: portrait)
+          height: var(--gap-350)
+          justify-content: center
+
 
     &-img
       position: absolute
@@ -54,9 +142,11 @@
 @keyframes workClipIn
   0%
     clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%)
+    opacity: 0
 
   5%
     clip-path: polygon(50% calc( 50% - 6px ), 50% calc( 50% - 6px ), 50% calc( 50% + 6px ), 50% calc( 50% + 6px ))
+    opacity: 1
     animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1)
 
   50%
@@ -65,16 +155,24 @@
 
   100%
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%)
+    opacity: 1
 
 @keyframes workFadeOut
   0%
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%)
+    animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1)
+    opacity: 1
+
 
   50%
     clip-path: polygon(25% calc( 50% - 6px ), 75% calc( 50% - 6px ), 75% calc( 50% + 6px ), 25% calc( 50% + 6px ))
+    animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1)
+    opacity: 1
 
   95%
     clip-path: polygon(50% calc( 50% - 6px ), 50% calc( 50% - 6px ), 50% calc( 50% + 6px ), 50% calc( 50% + 6px ))
+    opacity: 1
 
   100%
     clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%)
+    opacity: 0
