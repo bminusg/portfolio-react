@@ -1,7 +1,7 @@
 import type { Skill } from "../views/Skillset";
 
 export interface IconProps {
-	name: Skill["id"];
+	name: Skill["id"] | "logo";
 	fill?: string;
 	size?: string;
 	title?: string;
