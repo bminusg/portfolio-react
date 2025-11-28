@@ -16,7 +16,7 @@ export const SkillsetTabs = ({
 			items
 				.map((item) => item.data.length)
 				.reduce((prev, acc) => Math.max(prev, acc)),
-		[activeID],
+		[items],
 	);
 
 	const skills = useMemo<Skill[]>(() => {
@@ -27,7 +27,7 @@ export const SkillsetTabs = ({
 		const { data } = activeItem;
 
 		return data;
-	}, [activeID]);
+	}, [activeID, items]);
 
 	return (
 		<ul

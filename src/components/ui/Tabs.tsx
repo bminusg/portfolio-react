@@ -1,7 +1,5 @@
-import { useMemo, useState, type ReactNode } from "react";
 import "@sass/components/ui/tabs.sass";
-
-import type React from "react";
+import type { ReactNode } from "react";
 
 export interface TabsItem<T, ID extends string = string> {
 	id: ID;
