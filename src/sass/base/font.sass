@@ -43,9 +43,6 @@ p
   font-weight: 400
   line-height: 1.5
 
-  @media screen and (orientation: landscape)
-    max-width: 80%
-
 small
   font-size: var(--gap-200)
 
@@ -54,4 +51,8 @@ small
 
 a
   text-decoration: none
-  color: var(--color-grey-700)
+  color: var(--color-primary-900)
+  transition: color 0.6s cubic-bezier(0.45, 0, 0.55, 1)
+
+  &:hover
+    color: var(--color-primary-300)

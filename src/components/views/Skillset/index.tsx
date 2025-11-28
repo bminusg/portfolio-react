@@ -178,7 +178,7 @@ export const SkillsetView = ({ isActive }: { isActive: boolean }) => {
 				<Card>
 					<div className="skills--content flex justify-center gap-350">
 						<div className="skills--txt">
-							<h3 className="mb-250">Established in 1986 in Berlin</h3>
+							<h3 className="mb-250">Est. 1986 in Berlin</h3>
 							<p>
 								I'm a former digital advertising designer turned frontend
 								developer. After years in digital advertising building highly
