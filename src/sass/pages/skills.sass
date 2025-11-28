@@ -11,17 +11,28 @@
       color: var(--color-grey-600)
 
   &--list
+    display: grid
+    grid-template-columns: var(--gap-400) auto 1fr var(--gap-450)
+
     &-item
-      display: grid
       gap: var(--gap-200)
-      grid-template-columns: var(--gap-400) auto var(--gap-450)
-      padding: var(--gap-250) 0
+      display: grid
+      grid-template-columns: subgrid
+      grid-column: 1 / -1
+      min-height: var(--gap-400)
       align-items: center
 
-      &__icon
-        img
-          max-height: var(--gap-300)
+  &--icon
 
+  &--label
+    align-items: center
+    display: flex
+    color: var(--color-grey-500)
+
+    small
+      white-space: nowrap
+      line-height: 1
+      font-size: var(--gap-150)
 
   &--bar
     display: flex

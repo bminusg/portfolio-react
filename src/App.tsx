@@ -78,15 +78,19 @@ function App() {
 			<main>
 				<div
 					id="home"
-					className={`section ${views.home.isActive && "is--active"} home flex items-center`}
+					className={`section ${
+						views.home.isActive && "is--active"
+					} home flex items-center`}
 				>
 					<CoverView isActive={views.home.isActive} />
 				</div>
 				<div
 					id="skillset"
-					className={`section ${views.skillset.isActive && "is--active"} skills`}
+					className={`section ${
+						views.skillset.isActive && "is--active"
+					} skills flex items-center`}
 				>
-					<SkillsetView />
+					<SkillsetView isActive={views.skillset.isActive} />
 				</div>
 				<div
 					id="work"
@@ -96,7 +100,9 @@ function App() {
 				</div>
 				<div
 					id="contact"
-					className={`section ${views.contact.isActive && "is--active"} contact flex items-center`}
+					className={`section ${
+						views.contact.isActive && "is--active"
+					} contact flex items-center`}
 				>
 					<ContactView />
 				</div>

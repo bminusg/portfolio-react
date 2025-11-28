@@ -36,17 +36,20 @@ export const SkillsetTabItem: React.FC<Skill> = ({ level, label, id }) => {
 	return (
 		<li className="skills--list-item">
 			<div
-				className="skills--list-item__icon flex items-center justify-center"
+				className="skills--icon flex items-center justify-center"
 				title={label}
 			>
 				<Icon name={id} fill="var(--color-grey-500)" size="var(--gap-300)" />
+			</div>
+			<div className="skills--label">
+				<small>{label}</small>
 			</div>
 			<div className="skills--bar">
 				<span>
 					<span style={{ width: `${displayLevel}%` }}></span>
 				</span>
 			</div>
-			<div className="skills--list-item__level flex items-center gap-100">
+			<div className="skills--level flex items-center gap-100">
 				<h3>{displayLevel}</h3>
 				<span>%</span>
 			</div>
