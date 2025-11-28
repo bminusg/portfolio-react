@@ -1,3 +1,4 @@
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { Tabs } from "../../ui/Tabs.tsx";
 import { SkillsetTabs } from "./SkillsetTabs.tsx";
 import { Card } from "../../ui/Card.tsx";
@@ -32,11 +33,7 @@ export interface Skill {
 	level: number;
 }
 
-export const SkillsetView = () => {
-	const now = new Date();
-	const ageOfEngineering = new Date(2016, 0, 1);
-	const yearsOfExperience = now.getFullYear() - ageOfEngineering.getFullYear();
-
+export const SkillsetView = ({ isActive }: { isActive: boolean }) => {
 	const skillset: TabsItem<Skill[]>[] = [
 		{
 			id: "frontend",
@@ -122,17 +119,17 @@ export const SkillsetView = () => {
 				},
 				{
 					id: "ps",
-					label: "Adobe Photoshop",
+					label: "Photoshop",
 					level: 95,
 				},
 				{
 					id: "ai",
-					label: "Adobe Illustrator",
+					label: "Illustrator",
 					level: 70,
 				},
 				{
 					id: "ae",
-					label: "Adobe After Effects",
+					label: "After Effects",
 					level: 60,
 				},
 			],
@@ -160,6 +157,18 @@ export const SkillsetView = () => {
 		},
 	];
 
+	const [activeTabID, setActiveTabID] = useState<string | null>(skillset[0].id);
+
+	const effectiveTabID = useMemo(() => {
+		if (!isActive) return null;
+		return activeTabID ?? skillset[0].id;
+	}, [isActive, activeTabID, skillset]);
+
+	// click handler:
+	const setSkillTabContent = useCallback((item: TabsItem<Skill[]>) => {
+		setActiveTabID(item.id);
+	}, []);
+
 	return (
 		<div className="content">
 			<div className="flex justify-center">
@@ -182,7 +191,13 @@ export const SkillsetView = () => {
 						</div>
 						<div className="skills--tabs">
 							<h3 className="mb-250">Tech Stack</h3>
-							<Tabs items={skillset} Content={SkillsetTabs} />
+							<Tabs
+								items={skillset}
+								activeTabID={effectiveTabID}
+								onTabChange={setSkillTabContent}
+							>
+								<SkillsetTabs items={skillset} activeID={effectiveTabID} />
+							</Tabs>
 						</div>
 					</div>
 				</Card>
