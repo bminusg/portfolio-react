@@ -6,9 +6,8 @@ import type { MouseEventHandler } from "react";
 export const Footer = () => {
 	const [isImprintOpen, setIsImprintOpen] = useState(false);
 
-	const toggleImprint: MouseEventHandler<HTMLAnchorElement> = (event) => {
+	const toggleImprint: MouseEventHandler<HTMLDivElement> = (event) => {
 		event.preventDefault();
-		console.log("toggle imprint");
 		setIsImprintOpen(!isImprintOpen);
 	};
 
@@ -32,12 +31,12 @@ export const Footer = () => {
 					</a>
 				</nav>
 
-				<div className={`footer--imprint`}>
-					<a href="about:blank" onClick={toggleImprint}>
+				<div className={`footer--imprint`} onClick={toggleImprint}>
+					<a href="about:blank">
 						<span>Imprint</span>
 					</a>
 					<div
-						className={`${isImprintOpen && "is--open"} footer--imprint-layer`}
+						className={`${isImprintOpen && "is--open"} footer--imprint-layer px-200`}
 					>
 						<p>
 							<strong>Name:</strong> Benjamin Gebauer
@@ -52,8 +51,9 @@ export const Footer = () => {
 							<strong>Address:</strong> An der Villa Bolle 8A, 12557 Berlin
 						</p>
 						<p>
-							Responsible for content according to applicable law: Benjamin
-							Gebauer
+							<br />
+							Responsible for content according
+							<br /> to applicable law: Benjamin Gebauer
 						</p>
 					</div>
 				</div>
