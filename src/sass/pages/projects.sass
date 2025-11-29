@@ -1,6 +1,6 @@
-.work
+.projects
   &--list
-    background-image: url("@/assets/img/work--layer-landscape-grey.avif")
+    background-image: url("@/assets/img/projects--layer-landscape-grey.avif")
     background-size: cover
     background-position: center bottom
     background-attachment: fixed
@@ -60,7 +60,7 @@
 
   &--layer
     background-color: var(--color-primary-900)
-    background-image: url("@/assets/img/work--layer-landscape.avif")
+    background-image: url("@/assets/img/projects--layer-landscape.avif")
     background-size: cover
     background-position: center bottom
     position: fixed
@@ -81,14 +81,14 @@
       animation-name: workClipIn
       animation-duration: 1.5s
 
-      .work--layer-content
+      .projects--layer-content
         animation: fadeIn 1s cubic-bezier(0.5, 0, 0.75, 0) 1s forwards
 
     &.is--collapse
       animation-name: workFadeOut
       animation-duration: 1.5s
 
-      .work--layer-content
+      .projects--layer-content
         animation: fadeOut 0.4s cubic-bezier(0.5, 0, 0.75, 0) 0s forwards
 
     &-preview

@@ -1,26 +1,16 @@
 import { useState, useCallback, useEffect } from "react";
-import { WorkDetailLayer } from "./WorkDetailLayer.tsx";
+import { Project } from "./Project.tsx";
 import { Icon } from "@/components/ui/Icon";
-import "@sass/pages/work.sass";
 
-import type { Skill } from "../Skillset";
+import "@/sass/pages/projects.sass";
 
-export interface WorkItem {
-	id: string;
-	title: string;
-	desc: string;
-	techStack: Omit<Skill, "level">[];
-	cta?: {
-		label: string;
-		href: string;
-	};
-}
+import type { ProjectItem } from "./Project.tsx";
 
-export const WorkView = ({ isActive }: { isActive: boolean }) => {
+export const ProjectsView = ({ isActive }: { isActive: boolean }) => {
 	const [isExpanded, setIsExpanded] = useState(false);
-	const [activeItem, setActiveItem] = useState<WorkItem | null>(null);
+	const [activeItem, setActiveItem] = useState<ProjectItem | null>(null);
 
-	const items: WorkItem[] = [
+	const items: ProjectItem[] = [
 		{
 			id: "ad-glance",
 			title: "Ad glance",
@@ -103,7 +93,7 @@ export const WorkView = ({ isActive }: { isActive: boolean }) => {
 		setIsExpanded(false);
 	}, []);
 
-	function doExpand(item: WorkItem) {
+	function doExpand(item: ProjectItem) {
 		setIsExpanded(true);
 		setActiveItem(item);
 	}
@@ -129,21 +119,21 @@ export const WorkView = ({ isActive }: { isActive: boolean }) => {
 		setActiveItem(null);
 	}, [isActive]);
 
-	const onClick = (event: React.MouseEvent, item: WorkItem) => {
+	const onClick = (event: React.MouseEvent, item: ProjectItem) => {
 		event.preventDefault();
 		doExpand(item);
 	};
 
 	return (
 		<>
-			<ul className="work--list">
+			<ul className="projects--list">
 				{items.map((item) => (
 					<li
 						key={item.id}
-						className="work--list-item flex items-end"
+						className="projects--list-item flex items-end"
 						onClick={(event) => onClick(event, item)}
 					>
-						<div className="work--list-content">
+						<div className="projects--list-content">
 							<h3 className="mb-150">{item.title}</h3>
 							<ul className="flex gap-150 mb-200">
 								{item.techStack.map((skill) => (
@@ -162,10 +152,10 @@ export const WorkView = ({ isActive }: { isActive: boolean }) => {
 					</li>
 				))}
 			</ul>
-			<WorkDetailLayer
+			<Project
 				isActive={isExpanded && isActive}
 				doCollapse={doCollapse}
-				content={activeItem}
+				item={activeItem}
 			/>
 		</>
 	);
