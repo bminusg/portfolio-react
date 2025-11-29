@@ -1,2 +1,18 @@
-npm run format
-npm run lint
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+# Get staged files that Biome can format
+files=$(git diff --cached --name-only --diff-filter=ACM | grep -E "\.(ts|tsx|js|jsx|json)$")
+
+# Format staged files only
+if [ -n "$files" ]; then
+  echo "Formatting staged files with Biome..."
+  echo "$files" | xargs npm run format
+
+  echo "Re-staging formatted files..."
+  echo "$files" | xargs git add
+fi
+
+# Run linting
+echo "Running npm run lint..."
+npm run lint || exit 1
