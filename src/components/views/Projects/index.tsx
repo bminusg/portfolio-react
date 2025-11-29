@@ -100,7 +100,7 @@ export const ProjectsView = ({ isActive }: { isActive: boolean }) => {
 
 	useEffect(() => {
 		const body = document.body;
-		const section = document.getElementById("work");
+		const section = document.getElementById("projects");
 
 		if (!section) return;
 
