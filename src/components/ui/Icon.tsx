@@ -18,9 +18,10 @@ export const Icon = ({ name, fill, size, title }: IconProps) => {
 
 	return (
 		<i
-			className="icon"
+			className="icon flex"
 			style={{ color: fill, fontSize: size }}
 			title={title}
+			// biome-ignore lint/security/noDangerouslySetInnerHtml: SVG code is sanitized
 			dangerouslySetInnerHTML={{ __html: svg }}
 		></i>
 	);

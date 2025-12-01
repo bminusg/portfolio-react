@@ -1,6 +1,8 @@
-import React, { useEffect, useRef, useState } from "react";
-import type { Skill } from "./index.tsx";
+import { useEffect, useRef, useState } from "react";
 import { Icon } from "@/components/ui/Icon.tsx";
+
+import type React from "react";
+import type { Skill } from "./index.tsx";
 
 export const SkillsetTabItem: React.FC<Skill> = ({ level, label, id }) => {
 	const [displayLevel, setDisplayLevel] = useState(0);

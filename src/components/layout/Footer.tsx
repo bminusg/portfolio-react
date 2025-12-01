@@ -6,7 +6,7 @@ import type { MouseEventHandler } from "react";
 export const Footer = () => {
 	const [isImprintOpen, setIsImprintOpen] = useState(false);
 
-	const toggleImprint: MouseEventHandler<HTMLDivElement> = (event) => {
+	const toggleImprint: MouseEventHandler<HTMLAnchorElement> = (event) => {
 		event.preventDefault();
 		setIsImprintOpen(!isImprintOpen);
 	};
@@ -31,8 +31,8 @@ export const Footer = () => {
 					</a>
 				</nav>
 
-				<div className={`footer--imprint`} onClick={toggleImprint}>
-					<a href="about:blank">
+				<div className="footer--imprint">
+					<a href="about:blank" onClick={toggleImprint}>
 						<span>Imprint</span>
 					</a>
 					<div
