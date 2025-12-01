@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
+import { Minimize2, ExternalLink, CircleCheck, Swords } from "lucide-react";
+
 import { Button } from "@/components/ui/Button.tsx";
 import { Badge } from "@/components/ui/Badge.tsx";
-import { Minimize2, ExternalLink } from "lucide-react";
 import { Icon } from "@/components/ui/Icon.tsx";
 
 import type { Skill } from "@/components/views/Skillset";
@@ -16,6 +17,8 @@ export interface ProjectItem {
 	id: string;
 	title: string;
 	desc: string;
+	tasks: string[];
+	challanges: string[];
 	techStack: Omit<Skill, "level">[];
 	cta?: {
 		label: string;
@@ -53,9 +56,9 @@ export const Project = ({ isActive, doCollapse, item }: ProjectProps) => {
 			onAnimationEnd={handleAnimationEnd}
 		>
 			<div className="projects--layer-preview"></div>
-			<div className="projects--layer-content flex flex-col">
-				<h3 className="">{item?.title}</h3>
-				<div className="projects--layer-badges flex flex-wrap gap-200">
+			<div className="projects--layer-content">
+				<h3>{item?.title}</h3>
+				<div className="projects--layer-badges flex gap-150">
 					{item?.techStack?.map((tech) => (
 						<Badge key={`projects--layer-badges__item_${tech.id}`}>
 							<Icon name={tech.id} />
@@ -63,7 +66,47 @@ export const Project = ({ isActive, doCollapse, item }: ProjectProps) => {
 						</Badge>
 					))}
 				</div>
-				<p className="projects--layer-content__desc">{item?.desc}</p>
+
+				<div className="projects--content-txt">
+					<div className="projects--content-txt__scroll">
+						<div className="projects--content-txt__desc mb-200">
+							<h4 className="mb-100">Description</h4>
+							<p>{item?.desc}</p>
+						</div>
+
+						<div className="flex flex-wrap gap-200">
+							<div className="projects--content-txt__tasks">
+								<h4 className="mb-100">Tasks</h4>
+								<ul>
+									{item?.tasks.map((task) => (
+										<li>
+											<i>
+												<CircleCheck
+													size="12"
+													color="var(--color-primary-500)"
+												/>
+											</i>
+											<span>{task}</span>
+										</li>
+									))}
+								</ul>
+							</div>
+							<div className="projects--content-txt__challenges">
+								<h4 className="mb-100">Challenges</h4>
+								<ul>
+									{item?.challanges.map((challange) => (
+										<li>
+											<i>
+												<Swords size="12" color="var(--color-primary-500)" />
+											</i>
+											<span>{challange}</span>
+										</li>
+									))}
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
 				<p className="projects--layer-content__footer flex gap-200">
 					<Button
 						color="neutral"

@@ -14,7 +14,21 @@ export const ProjectsView = ({ isActive }: { isActive: boolean }) => {
 		{
 			id: "ad-glance",
 			title: "Ad glance",
-			desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut risus eget metus luctus accumsan id ultrices nunc. Sed ornare lacus adipiscing, posuere lectus et, fringilla augue.",
+			desc: "Ad Glance is a prototype for a campaign management platform designed to give every agency an individualized workspace with their own tools — including custom services such as an integrated ad server. The goal was to create a flexible foundation for collaboration with creatives, streamline asset creation, and provide basic analytics capabilities. The prototype included a functioning user/permission system, a structured UI built with Nuxt and Tailwind, and a feature that allowed users to dynamically generate Rich Media Ads via a simple form.",
+			tasks: [
+				"Concept, UX, and wireframe creation",
+				"Designing the database structure and overall software architecture",
+				"Developing the prototype in Nuxt/Tailwind from scratch",
+				"Implementing user and permission management",
+				"Building a dynamic Rich Media Ad generator component",
+				"Coordinating all roles: strategy, design, development, and testing",
+			],
+			challanges: [
+				"Switching between multiple roles and understanding domain constraints",
+				"Defining a scalable data and permission model",
+				"Designing a flexible UI/UX for different agency workflows",
+				"Keeping the dynamic ad generator simple yet powerful",
+			],
 			techStack: [
 				{
 					id: "vue",
@@ -39,28 +53,58 @@ export const ProjectsView = ({ isActive }: { isActive: boolean }) => {
 			},
 		},
 		{
-			id: "ad-kit",
-			title: "Ad kit",
-			desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut risus eget metus luctus accumsan id ultrices nunc. Sed ornare lacus adipiscing, posuere lectus et, fringilla augue.",
+			id: "microsites",
+			title: "Microsites",
+			desc: "Various client microsites optimized to highlight product USPs and guide users through clear and engaging user flows. Each microsite required a tailored concept with strong visual communication and smooth interactions.",
+			tasks: [
+				"Analyzing project goals and key communication points",
+				"Building concepts and user flows",
+				"UI design and layout creation",
+				"Frontend development of microsites",
+				"Ensuring a performant, cohesive user experience across devices",
+			],
+			challanges: [
+				"Ensuring consistent cross-browser behavior",
+				"Implementing clean responsiveness on all devices",
+				"Building performant and meaningful animations",
+				"Applying basic SEO best practices to small-scale projects",
+			],
 			techStack: [
+				{
+					id: "vue",
+					label: "Vue",
+				},
 				{
 					id: "ts",
 					label: "TypeScript",
 				},
-				{
-					id: "node",
-					label: "Node",
-				},
+
 				{
 					id: "sass",
 					label: "SASS",
+				},
+				{
+					id: "ps",
+					label: "Photoshop",
 				},
 			],
 		},
 		{
 			id: "tween-sass",
 			title: "Tween SASS",
-			desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut risus eget metus luctus accumsan id ultrices nunc. Sed ornare lacus adipiscing, posuere lectus et, fringilla augue.",
+			desc: "Tween-SASS is an open-source SASS utility that dynamically generates keyframe animations via chained tween definitions. Built to streamline Rich Media Ad production by reducing repetitive animation setup while maintaining performance.",
+			tasks: [
+				"Researching performance-friendly CSS animation properties",
+				"Defining animation rules, timings, and easing presets",
+				"Implementing SASS mixins to dynamically calculate keyframes",
+				"Documenting and preparing the library for public use",
+			],
+			challanges: [
+				"Balancing expressive animation control with simple syntax",
+				"Ensuring generated keyframes perform well across devices",
+				"Choosing and designing easing curves that feel natural",
+				"Keeping the library lightweight and accessible",
+			],
 			techStack: [
 				{
 					id: "sass",
@@ -75,15 +119,32 @@ export const ProjectsView = ({ isActive }: { isActive: boolean }) => {
 		{
 			id: "highimpact-ads",
 			title: "High Impact Ads",
-			desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut risus eget metus luctus accumsan id ultrices nunc. Sed ornare lacus adipiscing, posuere lectus et, fringilla augue.",
+			desc: "Development of high-impact ad formats with strong visual engagement, including custom formats like the uShape Ad and the Anchor Ad. Work included concepting, design, performance-focused development, and building a reusable toolkit for future ad production.",
+			tasks: [
+				"Designing interaction concepts and visual layouts",
+				"Developing high-impact ads with a focus on performance and compatibility",
+				"Communicating with clients during feedback and iteration phases",
+				"Creating a reusable internal feature library (video, carousel, parallax, cross-iframe communication, etc.)",
+				"Technical QA across visuals, behavior, and tracking",
+			],
+			challanges: [
+				"Balancing needs of users, publishers, and advertisers",
+				"Ensuring brand safety within varied publisher environments",
+				"Maintaining responsiveness within strict format constraints",
+				"Handling environment differences between publishers, devices, and iframes",
+			],
 			techStack: [
 				{
-					id: "js",
-					label: "JavaScript",
+					id: "ts",
+					label: "TypeScript",
 				},
 				{
 					id: "sass",
 					label: "SASS",
+				},
+				{
+					id: "ps",
+					label: "Photoshop",
 				},
 			],
 		},

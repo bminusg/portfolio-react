@@ -10,6 +10,9 @@
     p
       color: var(--color-grey-600)
 
+      @media screen and (orientation: landscape)
+        max-width: 75%
+
   &--list
     display: grid
     grid-template-columns: var(--gap-400) auto 1fr var(--gap-450)
@@ -21,8 +24,6 @@
       grid-column: 1 / -1
       min-height: var(--gap-400)
       align-items: center
-
-  &--icon
 
   &--label
     align-items: center

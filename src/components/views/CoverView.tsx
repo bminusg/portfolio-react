@@ -46,8 +46,8 @@ export const CoverView = ({ isActive }: { isActive: boolean }) => {
 						LinkedIn
 					</a>
 					, or contact me directly to send feedback on my{" "}
-					<a href="#work" target="_self">
-						work
+					<a href="#projects" target="_self">
+						projecs
 					</a>
 					.
 				</p>
