@@ -1,6 +1,6 @@
-.work
+.projects
   &--list
-    background-image: url("@/assets/img/work--layer-landscape-grey.avif")
+    background-image: url("@/assets/img/projects--layer-landscape-grey.avif")
     background-size: cover
     background-position: center bottom
     background-attachment: fixed
@@ -60,7 +60,7 @@
 
   &--layer
     background-color: var(--color-primary-900)
-    background-image: url("@/assets/img/work--layer-landscape.avif")
+    background-image: url("@/assets/img/projects--layer-landscape.avif")
     background-size: cover
     background-position: center bottom
     position: fixed
@@ -81,14 +81,14 @@
       animation-name: workClipIn
       animation-duration: 1.5s
 
-      .work--layer-content
+      .projects--layer-content
         animation: fadeIn 1s cubic-bezier(0.5, 0, 0.75, 0) 1s forwards
 
     &.is--collapse
       animation-name: workFadeOut
       animation-duration: 1.5s
 
-      .work--layer-content
+      .projects--layer-content
         animation: fadeOut 0.4s cubic-bezier(0.5, 0, 0.75, 0) 0s forwards
 
     &-preview
@@ -96,38 +96,25 @@
       position: relative
 
     &-content
-      background-color: var(--color-grey-000)
-      color: var(--color-grey-800)
-      padding: var(--gap-300) var(--gap-300) var(--gap-400) var(--gap-300)
       flex: 1
-      border-radius: var(--gap-200) var(--gap-200) 0 0
       opacity: 0
-      max-height: 50vh
-      gap: var(--gap-200)
+      padding: var(--gap-400) 0
+      display: flex
+      flex-direction: column
+      gap: var(--gap-250)
 
       h3
-        line-height: 1
-        font-size: var(--gap-300)
+        color: var(--color-primary-200)
 
-      @media screen and (orientation: landscape)
-        margin-top: 33vh
-        max-height: 67vh
-        border-radius: var(--gap-200) 0 0 0
-        padding: var(--gap-400)
-        gap: var(--gap-300)
+      h4
+        color: var(--color-grey-500)
 
-        h3
-          font-size: var(--gap-400)
+      @media screen and (orientation: portrait)
+        padding: 0 var(--gap-250) var(--gap-400) var(--gap-250)
+        max-height: 50%
+        gap: var(--gap-200)
 
-      &__desc
-        flex: 1
-        overflow-y: auto
-
-      &__footer
-        justify-content: flex-start
-
-        @media screen and (orientation: portrait)
-          height: var(--gap-350)
+        &__footer
           justify-content: center
 
     &-img
@@ -137,39 +124,33 @@
       object-fit: cover
       object-position: center
 
-@keyframes workClipIn
-  0%
-    clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%)
-    opacity: 0
+  &--content
 
-  5%
-    clip-path: polygon(50% calc( 50% - 6px ), 50% calc( 50% - 6px ), 50% calc( 50% + 6px ), 50% calc( 50% + 6px ))
-    opacity: 1
-    animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1)
+    &-txt
+      background-color: var(--color-grey-100)
+      border-radius: var(--gap-200) 0 0 var(--gap-200)
+      position: relative
+      padding: var(--gap-250)
+      flex: 1
+      min-height: 0
 
-  50%
-    clip-path: polygon(25% calc( 50% - 6px ), 75% calc( 50% - 6px ), 75% calc( 50% + 6px ), 25% calc( 50% + 6px ))
-    animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1)
+      &__scroll
+        overflow-y: auto
+        height: 100%
 
-  100%
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%)
-    opacity: 1
+      &__tasks,
+      &__challenges
+        flex: 1 0 var(--gap-650)
 
-@keyframes workFadeOut
-  0%
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%)
-    animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1)
-    opacity: 1
+        li
+          position: relative
+          padding-left: var(--gap-250)
+          margin-bottom: var(--gap-150)
 
-  50%
-    clip-path: polygon(25% calc( 50% - 6px ), 75% calc( 50% - 6px ), 75% calc( 50% + 6px ), 25% calc( 50% + 6px ))
-    animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1)
-    opacity: 1
+          i
+            position: absolute
+            left: 0
+            top: 2px
 
-  95%
-    clip-path: polygon(50% calc( 50% - 6px ), 50% calc( 50% - 6px ), 50% calc( 50% + 6px ), 50% calc( 50% + 6px ))
-    opacity: 1
-
-  100%
-    clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%)
-    opacity: 0
+      @media screen and (orientation: portrait)
+        border-radius: var(--gap-150)

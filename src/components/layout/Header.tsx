@@ -41,9 +41,9 @@ export const Header = ({ views }: { views: Record<string, View> }) => {
 						<span>Skillset</span>
 					</a>
 					<a
-						href="#work"
+						href="#projects"
 						target="_self"
-						className={`${views.work.isActive && "is--active"} header--nav-anchor flex items-center gap-050`}
+						className={`${views.projects.isActive && "is--active"} header--nav-anchor flex items-center gap-050`}
 						onClick={handleOnClick}
 					>
 						<div className="header--icon header--nav-icon">
@@ -54,7 +54,7 @@ export const Header = ({ views }: { views: Record<string, View> }) => {
 								<BriefcaseBusiness size="16" color="var(--color-primary-300)" />
 							</i>
 						</div>
-						<span>Work</span>
+						<span>Projects</span>
 					</a>
 					<a
 						href="#contact"

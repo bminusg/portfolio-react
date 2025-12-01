@@ -14,3 +14,40 @@
     opacity: 1
   100%
     opacity: 0
+
+@keyframes workClipIn
+  0%
+    clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%)
+    opacity: 0
+
+  5%
+    clip-path: polygon(50% calc( 50% - 6px ), 50% calc( 50% - 6px ), 50% calc( 50% + 6px ), 50% calc( 50% + 6px ))
+    opacity: 1
+    animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1)
+
+  50%
+    clip-path: polygon(25% calc( 50% - 6px ), 75% calc( 50% - 6px ), 75% calc( 50% + 6px ), 25% calc( 50% + 6px ))
+    animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1)
+
+  100%
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%)
+    opacity: 1
+
+@keyframes workFadeOut
+  0%
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%)
+    animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1)
+    opacity: 1
+
+  50%
+    clip-path: polygon(25% calc( 50% - 6px ), 75% calc( 50% - 6px ), 75% calc( 50% + 6px ), 25% calc( 50% + 6px ))
+    animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1)
+    opacity: 1
+
+  95%
+    clip-path: polygon(50% calc( 50% - 6px ), 50% calc( 50% - 6px ), 50% calc( 50% + 6px ), 50% calc( 50% + 6px ))
+    opacity: 1
+
+  100%
+    clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%)
+    opacity: 0
