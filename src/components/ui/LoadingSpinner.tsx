@@ -7,7 +7,7 @@ export const LoadingSpinner = () => {
 			<div className="loading-spinner--icon">
 				<LoaderCircle />
 			</div>
-			<span className="mono text-uppercase">Loading</span>
+			<small className="text-uppercase">Loading</small>
 		</div>
 	);
 };
