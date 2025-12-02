@@ -14,6 +14,7 @@ export const Button = ({ children, variant, color, onClick }: ButtonProps) => {
 			data-variant={variant}
 			data-color={color}
 			onClick={onClick}
+			type="button"
 		>
 			{children}
 		</button>

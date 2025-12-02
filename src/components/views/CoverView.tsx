@@ -47,7 +47,7 @@ export const CoverView = ({ isActive }: { isActive: boolean }) => {
 					</a>
 					, or contact me directly to send feedback on my{" "}
 					<a href="#projects" target="_self">
-						projecs
+						Projects
 					</a>
 					.
 				</p>

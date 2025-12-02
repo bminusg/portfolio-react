@@ -13,12 +13,17 @@ export interface ProjectProps {
 	doCollapse: () => void;
 }
 
+export interface ProjectDetail {
+	id: string;
+	value: string;
+}
+
 export interface ProjectItem {
 	id: string;
 	title: string;
 	desc: string;
-	tasks: string[];
-	challanges: string[];
+	tasks: ProjectDetail[];
+	challanges: ProjectDetail[];
 	techStack: Omit<Skill, "level">[];
 	cta?: {
 		label: string;
@@ -79,14 +84,14 @@ export const Project = ({ isActive, doCollapse, item }: ProjectProps) => {
 								<h4 className="mb-100">Tasks</h4>
 								<ul>
 									{item?.tasks.map((task) => (
-										<li>
+										<li key={task.id}>
 											<i>
 												<CircleCheck
 													size="12"
 													color="var(--color-primary-500)"
 												/>
 											</i>
-											<span>{task}</span>
+											<span>{task.value}</span>
 										</li>
 									))}
 								</ul>
@@ -95,11 +100,11 @@ export const Project = ({ isActive, doCollapse, item }: ProjectProps) => {
 								<h4 className="mb-100">Challenges</h4>
 								<ul>
 									{item?.challanges.map((challange) => (
-										<li>
+										<li key={challange.id}>
 											<i>
 												<Swords size="12" color="var(--color-primary-500)" />
 											</i>
-											<span>{challange}</span>
+											<span>{challange.value}</span>
 										</li>
 									))}
 								</ul>

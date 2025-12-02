@@ -104,7 +104,7 @@ function App() {
 						views.contact.isActive && "is--active"
 					} contact flex items-center`}
 				>
-					<ContactView />
+					<ContactView isActive={views.contact.isActive} />
 				</div>
 			</main>
 			<Footer />
