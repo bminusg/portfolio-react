@@ -25,14 +25,14 @@ export const CoverView = ({ isActive }: { isActive: boolean }) => {
 				className="video"
 			/>
 			<div className="home--content content flex flex-col gap-200 justify-center items-center">
-				<p className="mono">
-					Hi, my name is Benny Gebauer, and I am a passionate
+				<p className="mb-250">
+					Hey, my name is Benny Gebauer, and I am a passionate
 				</p>
 				<h1>
 					Frontend <br /> Developer
 				</h1>
-				<p className="monot">with a design DNA.</p>
-				<p className="mono">
+				<p>with a design-driven mindset.</p>
+				<p>
 					Browse my code on{" "}
 					<a href="https://github.com/bminusg" target="_blank" rel="noopener">
 						GitHub
@@ -46,8 +46,8 @@ export const CoverView = ({ isActive }: { isActive: boolean }) => {
 						LinkedIn
 					</a>
 					, or contact me directly to send feedback on my{" "}
-					<a href="#work" target="_self">
-						work
+					<a href="#projects" target="_self">
+						Projects
 					</a>
 					.
 				</p>

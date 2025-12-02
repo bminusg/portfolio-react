@@ -1,0 +1,156 @@
+.projects
+  &--list
+    background-image: url("@/assets/img/projects--layer-landscape-grey.avif")
+    background-size: cover
+    background-position: center bottom
+    background-attachment: fixed
+    background-color: var(--color-grey-900)
+    position: absolute
+    width: 100%
+    height: 100%
+    top: 0
+    left: 0
+    display: grid
+    grid-template-columns: repeat(auto-fit, minmax(var(--gap-650), 1fr))
+
+    &-item
+      background-color: rgb(#050f0a, 0.5)
+      position: relative
+      cursor: pointer
+      overflow: hidden
+      transition: background-color 0.5s ease-in-out
+      padding: var(--gap-450) var(--gap-250)
+      border-bottom: 1px solid rgba(255,255,255, 0.1)
+
+      @media screen and (orientation: portrait)
+        padding: var(--gap-250)
+
+      &:not(:last-child)
+        border-right: 1px solid rgba(255,255,255, 0.1)
+
+      img
+        position: absolute
+        width: 100%
+        height: 100%
+        object-fit: cover
+        object-position: center
+        transform: scale(1.1)
+        transition: transform 0.5s ease-in-out
+
+      &:hover
+        background-color: rgb(#050f0a, 0)
+
+        img
+          transform: scale(1)
+
+    &-content
+      max-width: 100%
+
+      h3,
+      small
+        color: var(--color-primary-200)
+        line-height: 1
+
+      small
+        width: calc(100%)
+        overflow: hidden
+        white-space: nowrap
+        text-overflow: ellipsis
+        display: inline-block
+
+  &--layer
+    background-color: var(--color-primary-900)
+    background-image: url("@/assets/img/projects--layer-landscape.avif")
+    background-size: cover
+    background-position: center bottom
+    position: fixed
+    top: 0
+    left: 0
+    width: 100vw
+    height: 100vh
+    z-index: 50
+    clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%)
+    animation-fill-mode: forwards
+    animation-timing-function: linear
+    overflow: hidden
+
+    @media screen and (orientation: portrait)
+      flex-direction: column
+
+    &.is--expand
+      animation-name: workClipIn
+      animation-duration: 1.5s
+
+      .projects--layer-content
+        animation: fadeIn 1s cubic-bezier(0.5, 0, 0.75, 0) 1s forwards
+
+    &.is--collapse
+      animation-name: workFadeOut
+      animation-duration: 1.5s
+
+      .projects--layer-content
+        animation: fadeOut 0.4s cubic-bezier(0.5, 0, 0.75, 0) 0s forwards
+
+    &-preview
+      flex: 1
+      position: relative
+
+    &-content
+      flex: 1
+      opacity: 0
+      padding: var(--gap-400) 0
+      display: flex
+      flex-direction: column
+      gap: var(--gap-250)
+
+      h3
+        color: var(--color-primary-200)
+
+      h4
+        color: var(--color-grey-500)
+
+      @media screen and (orientation: portrait)
+        padding: 0 var(--gap-250) var(--gap-400) var(--gap-250)
+        max-height: 50%
+        gap: var(--gap-200)
+
+        &__footer
+          justify-content: center
+
+    &-img
+      position: absolute
+      width: 100%
+      height: 100%
+      object-fit: cover
+      object-position: center
+
+  &--content
+
+    &-txt
+      background-color: var(--color-grey-100)
+      border-radius: var(--gap-200) 0 0 var(--gap-200)
+      position: relative
+      padding: var(--gap-250)
+      flex: 1
+      min-height: 0
+
+      &__scroll
+        overflow-y: auto
+        height: 100%
+
+      &__tasks,
+      &__challenges
+        flex: 1 0 var(--gap-650)
+
+        li
+          position: relative
+          padding-left: var(--gap-250)
+          margin-bottom: var(--gap-150)
+
+          i
+            position: absolute
+            left: 0
+            top: 2px
+
+      @media screen and (orientation: portrait)
+        border-radius: var(--gap-150)

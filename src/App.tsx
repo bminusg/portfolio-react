@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 
-import { Header } from "./components/layout/Header.tsx";
-import { Footer } from "./components/layout/Footer.tsx";
+import { Header } from "@/components/layout/Header.tsx";
+import { Footer } from "@/components/layout/Footer.tsx";
 
-import { CoverView } from "./components/views/CoverView.tsx";
-import { SkillsetView } from "./components/views/Skillset";
-import { WorkView } from "./components/views/Work";
-import { ContactView } from "./components/views/ContactView.tsx";
+import { CoverView } from "@/components/views/CoverView.tsx";
+import { SkillsetView } from "@/components/views/Skillset";
+import { ProjectsView } from "@/components/views/Projects";
+import { ContactView } from "@/components/views/ContactView.tsx";
 
 import "./sass/main.sass";
 
@@ -30,7 +30,7 @@ function App() {
 			isActive: false,
 			props: {},
 		},
-		work: {
+		projects: {
 			isActive: false,
 			props: {},
 		},
@@ -78,25 +78,31 @@ function App() {
 			<main>
 				<div
 					id="home"
-					className={`section ${views.home.isActive && "is--active"} home flex items-center`}
+					className={`section ${
+						views.home.isActive && "is--active"
+					} home flex items-center`}
 				>
 					<CoverView isActive={views.home.isActive} />
 				</div>
 				<div
 					id="skillset"
-					className={`section ${views.skillset.isActive && "is--active"} skills`}
+					className={`section ${
+						views.skillset.isActive && "is--active"
+					} skills flex items-center`}
 				>
 					<SkillsetView isActive={views.skillset.isActive} />
 				</div>
 				<div
-					id="work"
-					className={`section ${views.work.isActive && "is--active"} work`}
+					id="projects"
+					className={`section ${views.projects.isActive && "is--active"} projects`}
 				>
-					<WorkView isActive={views.work.isActive} />
+					<ProjectsView isActive={views.projects.isActive} />
 				</div>
 				<div
 					id="contact"
-					className={`section ${views.contact.isActive && "is--active"} contact flex items-center`}
+					className={`section ${
+						views.contact.isActive && "is--active"
+					} contact flex items-center`}
 				>
 					<ContactView isActive={views.contact.isActive} />
 				</div>

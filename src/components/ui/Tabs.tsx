@@ -1,26 +1,31 @@
-import { useMemo, useState } from "react";
 import "@sass/components/ui/tabs.sass";
+import type { ReactNode } from "react";
 
-import type React from "react";
-
-export interface TabsItem<T> {
-	id: string;
+export interface TabsItem<T, ID extends string = string> {
+	id: ID;
 	label: string;
 	data: T;
 }
 
-export type TabsProps<T> = {
-	items: TabsItem<T>[];
-	Content: React.FC<{ data: T }>;
+export type TabsProps<T, ID extends string = string> = {
+	items: TabsItem<T, ID>[];
+	activeTabID: string | null;
+	children: ReactNode;
+	onTabChange: (item: TabsItem<T, ID>) => void;
 };
 
-export const Tabs = <T,>({ items, Content }: TabsProps<T>) => {
-	const [activeTabID, setActiveTabID] = useState<string>(items[0].id);
+export const Tabs = <T,>({
+	items,
+	children,
+	activeTabID,
+	onTabChange,
+}: TabsProps<T>) => {
+	function changeTab(id: string) {
+		const item = items.find((item) => item.id === id);
 
-	const activeTab = useMemo(
-		() => items.find((item) => item.id === activeTabID),
-		[activeTabID, items],
-	);
+		if (!item) return;
+		onTabChange(item);
+	}
 
 	return (
 		<div className="tabs">
@@ -32,17 +37,15 @@ export const Tabs = <T,>({ items, Content }: TabsProps<T>) => {
 						className={`${id === activeTabID && "is--active"} tabs--nav-item`}
 						role="button"
 						tabIndex={0}
-						onClick={() => setActiveTabID(id)}
-						onKeyDown={() => setActiveTabID(id)}
+						onClick={() => changeTab(id)}
+						onKeyDown={() => changeTab(id)}
 					>
-						<span className="mono">{label}</span>
+						<span>{label}</span>
 					</div>
 				))}
 			</nav>
 
-			<div className="tabs--content">
-				{activeTab && <Content data={activeTab.data} />}
-			</div>
+			<div className="tabs--content">{children}</div>
 		</div>
 	);
 };

@@ -1,14 +1,10 @@
 .loading-spinner
-  color: var(--color-grey-100)
+  color: var(--color-primary-300)
   font-size: var(--gap-200)
 
   &--icon
-    opacity: 0.5
+    aspect-ratio: 1
     animation: spin 2s linear infinite
-    color: var(--color-primary-100)
-
-    @keyframes spin
-      0%
-        transform: rotate(0deg)
-      100%
-        transform: rotate(360deg)
+    color: var(--color-primary-300)
+    display: flex
+    place-content: center

@@ -1,61 +1,59 @@
 @font-face
-  font-family: 'Inter'
-  src: url('/fonts/Inter-VariableFont_opsz,wght.ttf') format('truetype-variations')
-  font-weight: 100 900
-  font-style: normal
-  font-display: swap
-
-@font-face
   font-family: 'JetBrains Mono'
-  src: url('/fonts/jetbrains-mono/JetBrainsMono-Regular.woff2') format('woff2')
+  src: url('@/assets/fonts/jetbrains-mono/JetBrainsMono-Regular.woff2') format('woff2')
   font-weight: 500
   font-style: normal
   font-display: swap
 
+@font-face
+  font-family: "Choplin-ExtraBold"
+  font-display: swap
+  font-weight: 800
+  src: url("@/assets/fonts/choplin/2B3C23_7_0.woff") format("woff")
+
 body
-  font-family: apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji"
+  font-family: 'JetBrains Mono', apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji"
   color: var(--color-grey-800)
+  font-size: var(--gap-200)
   word-break: break-word
 
 h1
-  font-family: 'Inter', sans-serif
-  font-size: clamp(var(--gap-300), 15vw, var(--gap-650))
-  font-weight: 900
+  font-family: 'Choplin-ExtraBold', serif
+  font-size: clamp(var(--gap-300), 14vw, var(--gap-650))
   color: var(--color-primary-200)
   text-transform: uppercase
   line-height: 0.85
 
 h2
   position: relative
-  font-family: 'Inter', sans-serif
-  font-weight: 900
-  font-size: clamp(var(--gap-200), 10vw, var(--gap-450))
+  font-family: 'Choplin-ExtraBold', serif
+  font-size: clamp(var(--gap-300), 6vw, var(--gap-400))
   text-transform: uppercase
-  text-align: center
-  color: var(--color-grey-400)
-  opacity: 0.50
-  margin-bottom: var(--gap-350)
+  line-height: 1.1
 
 h3
-  font-family: 'Inter', sans-serif
-  font-weight: 900
+  font-family: 'Choplin-ExtraBold', sans-serif
   font-size: clamp(var(--gap-150), 5vw, var(--gap-300))
   text-transform: uppercase
 
+h4
+  font-size: var(--gap-150)
+  text-transform: uppercase
+
 p
-  font-family: 'Inter', sans-serif
   font-weight: 400
   line-height: 1.5
 
-  @media screen and (orientation: landscape)
-    max-width: 80%
-
-.mono
-  font-family: 'JetBrains Mono', monospace
+small
+  font-size: var(--gap-150)
 
 .text-uppercase
   text-transform: uppercase
 
 a
   text-decoration: none
-  color: var(--color-grey-700)
+  color: var(--color-primary-900)
+  transition: color 0.6s cubic-bezier(0.45, 0, 0.55, 1)
+
+  &:hover
+    color: var(--color-primary-300)

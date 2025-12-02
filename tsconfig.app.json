@@ -19,9 +19,10 @@
 		"erasableSyntaxOnly": true,
 		"noFallthroughCasesInSwitch": true,
 		"noUncheckedSideEffectImports": true,
+		"baseUrl": ".",
 		"paths": {
-			"@": ["./src/*"],
-			"@sass": ["./src/sass/*"]
+			"@/*": ["src/*"],
+			"@sass": ["src/sass/*"]
 		}
 	},
 	"include": ["src"]

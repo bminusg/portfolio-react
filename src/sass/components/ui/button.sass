@@ -1,0 +1,16 @@
+.button
+  padding: var(--gap-200) var(--gap-300)
+  font-size: var(--gap-200)
+  max-height: var(--gap-400)
+  border-radius: var(--gap-300)
+  user-select: none
+
+  &[data-variant="outline"]
+    border-style: solid
+    border-width: 1px
+    border-color: var(--color-primary-600)
+    color: var(--color-primary-500)
+
+    &:hover
+      background-color: var(--color-primary-500)
+      color: var(--color-primary-100)

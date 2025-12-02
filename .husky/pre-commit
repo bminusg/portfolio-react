@@ -1,0 +1,39 @@
+#!/bin/sh
+
+echo "→ husky: running pre-commit hook"
+
+# Get staged files (space-safe via NUL delimiters)
+staged_files=$(git diff --cached --name-only --diff-filter=ACM -z)
+
+# Filter for supported extensions
+filtered=""
+printf "%s" "$staged_files" | tr '\0' '\n' | while IFS= read -r file; do
+  case "$file" in
+    *.ts|*.tsx|*.js|*.jsx|*.json|*.css|*.md)
+      filtered="$filtered$file\0"
+      ;;
+  esac
+done
+
+# Format staged files
+if [ -n "$filtered" ]; then
+  echo "→ Formatting staged files with Biome..."
+  printf "%s" "$filtered" | xargs -0 npx biome format --write --
+
+  echo "→ Re-staging formatted files..."
+  printf "%s" "$filtered" | xargs -0 git add --
+else
+  echo "→ No staged files to format."
+fi
+
+echo "→ Running npm run lint..."
+npm run lint
+lint_status=$?
+
+if [ $lint_status -ne 0 ]; then
+  echo "✖ Lint failed — commit blocked"
+  exit 1
+fi
+
+echo "✔ Pre-commit hook: success"
+exit 0
