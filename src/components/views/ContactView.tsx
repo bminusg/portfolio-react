@@ -30,7 +30,7 @@ export const ContactView = ({ isActive }: { isActive: boolean }) => {
 									onMouseDown={replaceHref}
 									href="bWFpbHRvOmJlbm55LmdlYmF1ZXJAb3V0bG9vay5kZQ=="
 								>
-									benny.gebauer [at] outlook.de
+									bgebauer [at] yolobirds.dev
 								</a>
 							</li>
 						</ul>

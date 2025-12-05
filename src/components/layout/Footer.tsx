@@ -41,8 +41,8 @@ export const Footer = () => {
 							</p>
 							<p>
 								<strong>Email:</strong>{" "}
-								<a href="mailto:benny.gebauer@outlook.de">
-									benny.gebauer@outlook.de
+								<a href="mailto:bgebauer@yolobirds.dev">
+									bgebauer@yolobirds.dev
 								</a>
 							</p>
 							<p>
