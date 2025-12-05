@@ -69,7 +69,7 @@ export const ProjectsView = ({ isActive }: { isActive: boolean }) => {
 				{ id: "figma", label: "Figma" },
 			],
 			cta: {
-				label: "Browse Code",
+				label: "Browse",
 				href: "https://github.com/bminusg/ad-glance",
 			},
 		},
@@ -169,7 +169,7 @@ export const ProjectsView = ({ isActive }: { isActive: boolean }) => {
 			],
 			techStack: [{ id: "sass", label: "SASS" }],
 			cta: {
-				label: "Browse Code",
+				label: "Browse",
 				href: "https://github.com/bminusg/tween-sass",
 			},
 		},
@@ -230,19 +230,34 @@ export const ProjectsView = ({ isActive }: { isActive: boolean }) => {
 		},
 	];
 
+	const setNextItem = useCallback(() => {
+		let activeIdx = items.findIndex((item) => item.id === activeItem?.id);
+		activeIdx++;
+
+		const item = items[activeIdx >= items.length ? 0 : activeIdx];
+		setActiveItem(item);
+	}, [activeItem]);
+
+	const setPreviousItem = useCallback(() => {
+		let activeIdx = items.findIndex((item) => item.id === activeItem?.id);
+		activeIdx--;
+
+		const item = items[activeIdx < 0 ? items.length - 1 : activeIdx];
+		setActiveItem(item);
+	}, [activeItem]);
+
 	const doCollapse = useCallback(() => {
 		setIsExpanded(false);
 	}, []);
 
-	function doExpand(item: ProjectItem) {
+	const doExpand = (item: ProjectItem) => {
 		setIsExpanded(true);
 		setActiveItem(item);
-	}
+	};
 
 	useEffect(() => {
 		const body = document.body;
 		const section = document.getElementById("projects");
-
 		if (!section) return;
 
 		if (isExpanded) {
@@ -300,6 +315,8 @@ export const ProjectsView = ({ isActive }: { isActive: boolean }) => {
 			<Project
 				isActive={isExpanded && isActive}
 				doCollapse={doCollapse}
+				setPrev={setPreviousItem}
+				setNext={setNextItem}
 				item={activeItem}
 			/>
 		</>

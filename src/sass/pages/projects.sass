@@ -101,21 +101,19 @@
       padding: var(--gap-400) 0
       display: flex
       flex-direction: column
-      gap: var(--gap-250)
+      gap: var(--gap-300)
 
-      h3
+      h2
         color: var(--color-primary-200)
 
       h4
-        color: var(--color-grey-500)
+        color: var(--color-primary-500)
 
       @media screen and (orientation: portrait)
         padding: 0 var(--gap-250) var(--gap-400) var(--gap-250)
         max-height: 50%
         gap: var(--gap-200)
-
-        &__footer
-          justify-content: center
+        align-items: center
 
     &-img
       position: absolute
@@ -125,22 +123,21 @@
       object-position: center
 
   &--content
-
     &-txt
-      background-color: var(--color-grey-100)
-      border-radius: var(--gap-200) 0 0 var(--gap-200)
       position: relative
-      padding: var(--gap-250)
-      flex: 1
       min-height: 0
 
       &__scroll
         overflow-y: auto
         height: 100%
+        scrollbar-color: var(--color-primary-500) transparent
+        scrollbar-width: thin
 
+      &__desc,
       &__tasks,
       &__challenges
-        flex: 1 0 var(--gap-650)
+        color: var(--color-primary-100)
+        flex: 0 1 var(--gap-650)
 
         li
           position: relative
@@ -151,6 +148,3 @@
             position: absolute
             left: 0
             top: 2px
-
-      @media screen and (orientation: portrait)
-        border-radius: var(--gap-150)
