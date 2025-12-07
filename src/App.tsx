@@ -88,7 +88,7 @@ function App() {
 					id="skillset"
 					className={`skills section ${
 						views.skillset.isActive && "is--active"
-					}  flex items-center`}
+					}  flex`}
 				>
 					<SkillsetView isActive={views.skillset.isActive} />
 				</div>
