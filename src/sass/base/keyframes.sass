@@ -2,18 +2,35 @@
   0%
     opacity: 0
     filter: blur(10px)
-    transform: translateY(48px) scale(1.2)
 
   100%
     opacity: 1
     filter: blur(0)
-    transform: translateY(0) scale(1)
 
 @keyframes fadeOut
   0%
     opacity: 1
   100%
     opacity: 0
+
+@keyframes slideInLeft
+  0%
+    transform: translateX(-100%)
+    opacity: 0
+
+  100%
+    transform: translateX(0)
+    opacity: 1
+
+@keyframes slideInRight
+  0%
+    transform: translateX(100%)
+    opacity: 0
+
+  100%
+    transform: translateX(0)
+    opacity: 1
+
 
 @keyframes workClipIn
   0%

@@ -1,4 +1,5 @@
 import { useState, useCallback, useEffect } from "react";
+
 import { Project } from "./Project.tsx";
 import { Icon } from "@/components/ui/Icon";
 
@@ -43,7 +44,7 @@ export const ProjectsView = ({ isActive }: { isActive: boolean }) => {
 						"Coordinating all roles: strategy, design, development, and testing",
 				},
 			],
-			challanges: [
+			challenges: [
 				{
 					id: "e1d9f5fd-bbba-49bb-b64c-1bde9a3fbd14",
 					value:
@@ -60,6 +61,18 @@ export const ProjectsView = ({ isActive }: { isActive: boolean }) => {
 				{
 					id: "d04ea3c9-5f36-4d9a-b1a7-a0f12bd7e1a8",
 					value: "Keeping the dynamic ad generator simple yet powerful",
+				},
+			],
+			assets: [
+				{
+					id: "a708b6cf-64a7-4f02-b0b3-74bbfd188e14",
+					type: "image",
+					src: [
+						{
+							url: "/img/projects--preview-adglance@2x.png",
+							type: "image",
+						},
+					],
 				},
 			],
 			techStack: [
@@ -101,7 +114,7 @@ export const ProjectsView = ({ isActive }: { isActive: boolean }) => {
 						"Ensuring a performant, cohesive user experience across devices",
 				},
 			],
-			challanges: [
+			challenges: [
 				{
 					id: "a7feeada-d952-4df2-aded-e72b7dd3c477",
 					value: "Ensuring consistent cross-browser behavior",
@@ -124,6 +137,23 @@ export const ProjectsView = ({ isActive }: { isActive: boolean }) => {
 				{ id: "ts", label: "TypeScript" },
 				{ id: "sass", label: "SASS" },
 				{ id: "ps", label: "Photoshop" },
+			],
+			assets: [
+				{
+					id: "",
+					type: "video",
+
+					src: [
+						{
+							url: "/video/projects--preview-microsites.mp4",
+							type: "video/mp4;codecs=hvc1",
+						},
+						{
+							url: "/video/projects--preview-microsites.webm",
+							type: "video/webm",
+						},
+					],
+				},
 			],
 		},
 
@@ -149,7 +179,7 @@ export const ProjectsView = ({ isActive }: { isActive: boolean }) => {
 					value: "Documenting and preparing the library for public use",
 				},
 			],
-			challanges: [
+			challenges: [
 				{
 					id: "9cc3ee55-51a7-4850-9e91-a8d96f62f9c1",
 					value: "Balancing expressive animation control with simple syntax",
@@ -168,6 +198,7 @@ export const ProjectsView = ({ isActive }: { isActive: boolean }) => {
 				},
 			],
 			techStack: [{ id: "sass", label: "SASS" }],
+			assets: [],
 			cta: {
 				label: "Browse",
 				href: "https://github.com/bminusg/tween-sass",
@@ -203,7 +234,7 @@ export const ProjectsView = ({ isActive }: { isActive: boolean }) => {
 					value: "Technical QA across visuals, behavior, and tracking",
 				},
 			],
-			challanges: [
+			challenges: [
 				{
 					id: "f86be71f-82d8-4ee8-8ee2-3739eb4e8798",
 					value: "Balancing needs of users, publishers, and advertisers",
@@ -226,6 +257,22 @@ export const ProjectsView = ({ isActive }: { isActive: boolean }) => {
 				{ id: "ts", label: "TypeScript" },
 				{ id: "sass", label: "SASS" },
 				{ id: "ps", label: "Photoshop" },
+			],
+			assets: [
+				{
+					id: "359cbe8a-e02b-4399-b1af-56d603014290",
+					type: "video",
+					src: [
+						{
+							url: "/video/projects--preview-highimpact.mp4",
+							type: "video/mp4;codecs=hvc1",
+						},
+						{
+							url: "/video/projects--preview-highimpact.webm",
+							type: "video/webm",
+						},
+					],
+				},
 			],
 		},
 	];

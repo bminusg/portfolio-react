@@ -12,7 +12,8 @@ export const ContactView = ({ isActive }: { isActive: boolean }) => {
 		);
 
 	return (
-		<div className="content flex gap-250 items-center">
+		<div className="content flex gap-250 items-center justify-center">
+			<div className="contact--img"></div>
 			<div className="contact--txt px-150">
 				<h2 className="mb-250">Let's work together</h2>
 				<p className="mb-350">
@@ -61,7 +62,6 @@ export const ContactView = ({ isActive }: { isActive: boolean }) => {
 					<div className="contact--content-img"></div>
 				</div>
 			</div>
-			<div className="contact--img"></div>
 		</div>
 	);
 };

@@ -1,9 +1,10 @@
 .button
-  padding: var(--gap-200) var(--gap-300)
+  padding: var(--gap-200) clamp(var(--gap-200), 1vw, var(--gap-300))
   font-size: var(--gap-200)
   max-height: var(--gap-400)
   border-radius: var(--gap-300)
   user-select: none
+  white-space: nowrap
 
   &[data-variant="outline"]
     backdrop-filter: blur(15px)
