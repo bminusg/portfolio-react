@@ -27,13 +27,27 @@ export interface ProjectDetail {
 	value: string;
 }
 
+export interface Source {
+	url: string;
+	type: "video/webm" | "video/mp4" | "video/mp4;codecs=hvc1" | "image";
+}
+
+export interface PreviewAsset {
+	id: string;
+	type: "image" | "video";
+	src: Source[];
+	alt?: string;
+	isTeaser?: boolean;
+}
+
 export interface ProjectItem {
 	id: string;
 	title: string;
 	desc: string;
 	tasks: ProjectDetail[];
-	challanges: ProjectDetail[];
+	challenges: ProjectDetail[];
 	techStack: Omit<Skill, "level">[];
+	assets: PreviewAsset[];
 	cta?: {
 		label: string;
 		href: string;
@@ -72,10 +86,42 @@ export const Project = ({
 
 	return (
 		<div
-			className={`projects--layer flex ${animState}`}
+			className={`projects--layer flex gap-350 ${animState}`}
 			onAnimationEnd={handleAnimationEnd}
 		>
-			<div className="projects--layer-preview"></div>
+			<div className="projects--layer-preview flex justify-center items-center">
+				{item?.assets.map((asset) => {
+					return (
+						<div className={`projects--preview-item`} key={asset.id}>
+							{asset.type === "image" && (
+								<img
+									src={asset.src[0].url}
+									alt={asset.alt || ""}
+									className="projects--layer-preview__img"
+								/>
+							)}
+
+							{asset.type.startsWith("video") && (
+								<video
+									loop
+									muted
+									playsInline
+									autoPlay
+									className="projects--layer-preview__video"
+								>
+									{asset.src.map((source) => (
+										<source
+											key={source.url}
+											src={source.url}
+											type={source.type}
+										/>
+									))}
+								</video>
+							)}
+						</div>
+					);
+				})}
+			</div>
 			<div className="projects--layer-content">
 				<h2>{item?.title}</h2>
 
@@ -145,7 +191,7 @@ export const Project = ({
 							<div className="projects--content-txt__challenges">
 								<h4 className="mb-200">Challenges</h4>
 								<ul>
-									{item?.challanges.map((challange) => (
+									{item?.challenges.map((challange) => (
 										<li key={challange.id}>
 											<i>
 												<Swords size="12" color="var(--color-primary-500)" />
