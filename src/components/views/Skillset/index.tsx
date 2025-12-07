@@ -1,6 +1,7 @@
 import { useCallback, useMemo, useState } from "react";
 import { Tabs } from "../../ui/Tabs.tsx";
 import { SkillsetTabs } from "./SkillsetTabs.tsx";
+import { LoadingSpinner } from "../../ui/LoadingSpinner.tsx";
 import { Card } from "../../ui/Card.tsx";
 import "@sass/pages/skills.sass";
 
@@ -172,11 +173,18 @@ export const SkillsetView = ({ isActive }: { isActive: boolean }) => {
 		setActiveTabID(item.id);
 	}, []);
 
+	if (!isActive)
+		return (
+			<div className="content flex justify-center">
+				<LoadingSpinner />
+			</div>
+		);
+
 	return (
 		<div className="content">
 			<div className="flex justify-center">
 				<Card>
-					<div className="skills--content flex justify-center gap-350">
+					<div className="skills--content flex justify-center">
 						<div className="skills--txt">
 							<h3 className="mb-250">Est. 1986 in Berlin</h3>
 							<p>
