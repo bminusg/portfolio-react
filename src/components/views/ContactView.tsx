@@ -12,7 +12,7 @@ export const ContactView = ({ isActive }: { isActive: boolean }) => {
 		);
 
 	return (
-		<div className="content flex gap-250 items-center justify-center">
+		<div className="content flex flex-wrap gap-250 items-center justify-center">
 			<div className="contact--img"></div>
 			<div className="contact--txt px-150">
 				<h2 className="mb-250">Let's work together</h2>
