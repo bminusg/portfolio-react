@@ -38,6 +38,7 @@ export interface PreviewAsset {
 	src: Source[];
 	alt?: string;
 	isTeaser?: boolean;
+	poster?: string;
 }
 
 export interface ProjectItem {
@@ -66,6 +67,17 @@ export const Project = ({
 		isActive ? "is--expand" : "is--collapse",
 	);
 
+	const handleAnimationEnd = (e: React.AnimationEvent<HTMLDivElement>) => {
+		if (e.target !== e.currentTarget) return;
+		if (animState !== "is--collapse") return;
+
+		doCollapse();
+	};
+
+	const hasVideoSourceAlphaSupport = (): boolean => {
+		return !/iPad|iPhone/.test(navigator.userAgent);
+	};
+
 	useEffect(() => {
 		if (isActive) {
 			setIsMounted(true);
@@ -74,13 +86,6 @@ export const Project = ({
 			setIsMounted(false);
 		}
 	}, [isActive]);
-
-	const handleAnimationEnd = (e: React.AnimationEvent<HTMLDivElement>) => {
-		if (e.target !== e.currentTarget) return;
-		if (animState !== "is--collapse") return;
-
-		doCollapse();
-	};
 
 	if (!isMounted) return null;
 
@@ -92,7 +97,7 @@ export const Project = ({
 			<div className="projects--layer-preview flex justify-center items-center">
 				{item?.assets.map((asset) => {
 					return (
-						<div className={`projects--preview-item`} key={asset.id}>
+						<div className="projects--preview-item" key={asset.id}>
 							{asset.type === "image" && (
 								<img
 									src={asset.src[0].url}
@@ -108,14 +113,17 @@ export const Project = ({
 									playsInline
 									autoPlay
 									className="projects--layer-preview__video"
+									poster={asset.poster || ""}
 								>
-									{asset.src.map((source) => (
-										<source
-											key={source.url}
-											src={source.url}
-											type={source.type}
-										/>
-									))}
+									{asset.src
+										.filter(hasVideoSourceAlphaSupport)
+										.map((source) => (
+											<source
+												key={source.url}
+												src={source.url}
+												type={source.type}
+											/>
+										))}
 								</video>
 							)}
 						</div>
