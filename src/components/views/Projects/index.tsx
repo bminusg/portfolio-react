@@ -142,7 +142,7 @@ export const ProjectsView = ({ isActive }: { isActive: boolean }) => {
 				{
 					id: "",
 					type: "video",
-
+					poster: "/video/projects--preview-microsites.png",
 					src: [
 						{
 							url: "/video/projects--preview-microsites.mp4",
@@ -262,6 +262,7 @@ export const ProjectsView = ({ isActive }: { isActive: boolean }) => {
 				{
 					id: "359cbe8a-e02b-4399-b1af-56d603014290",
 					type: "video",
+					poster: "/video/projects--preview-highimpact.png",
 					src: [
 						{
 							url: "/video/projects--preview-highimpact.mp4",
