@@ -36,7 +36,7 @@ export const SkillsetTabItem: React.FC<Skill> = ({ level, label, id }) => {
 	}, [level]);
 
 	return (
-		<li className="skills--list-item">
+		<>
 			<div
 				className="skills--icon flex items-center justify-center"
 				title={label}
@@ -55,6 +55,6 @@ export const SkillsetTabItem: React.FC<Skill> = ({ level, label, id }) => {
 				<h3>{displayLevel}</h3>
 				<span>%</span>
 			</div>
-		</li>
+		</>
 	);
 };

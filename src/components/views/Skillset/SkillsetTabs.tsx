@@ -1,8 +1,11 @@
 import { useMemo } from "react";
+import { motion } from "framer-motion";
 
 import { SkillsetTabItem } from "./SkillsetTabItem";
+
 import type { Skill } from "./index.tsx";
 import type { TabsItem } from "@/components/ui/Tabs.tsx";
+import type { Variants } from "framer-motion";
 
 export const SkillsetTabs = ({
 	activeID,
@@ -11,14 +14,6 @@ export const SkillsetTabs = ({
 	activeID: string | null;
 	items: TabsItem<Skill[]>[];
 }) => {
-	const maxSkillItems = useMemo(
-		() =>
-			items
-				.map((item) => item.data.length)
-				.reduce((prev, acc) => Math.max(prev, acc)),
-		[items],
-	);
-
 	const skills = useMemo<Skill[]>(() => {
 		const activeItem = items.find((item) => item.id === activeID);
 
@@ -29,22 +24,49 @@ export const SkillsetTabs = ({
 		return data;
 	}, [activeID, items]);
 
+	const listVariants = {
+		hidden: {},
+		visible: {
+			transition: {
+				staggerChildren: 0.12,
+			},
+		},
+	};
+
+	const itemVariants: Variants = {
+		hidden: {
+			opacity: 0,
+			scale: 0.9,
+		},
+		visible: {
+			opacity: 1,
+			scale: 1,
+			transition: {
+				duration: 0.25,
+				ease: "easeOut",
+			},
+		},
+	};
+
 	return (
-		<ul
+		<motion.ul
 			className="skills--list"
-			style={{
-				minHeight: `calc(var(--gap-400) * ${maxSkillItems})`,
-				gridTemplateRows: `repeat(${maxSkillItems}, var(--gap-400))`,
-			}}
+			key={activeID}
+			layout
+			variants={listVariants}
+			initial="hidden"
+			animate="visible"
 		>
 			{skills.map((item) => (
-				<SkillsetTabItem
+				<motion.li
 					key={`skill-item-${item.id}`}
-					id={item.id}
-					level={item.level}
-					label={item.label}
-				/>
+					layout
+					className="skills--list-item"
+					variants={itemVariants}
+				>
+					<SkillsetTabItem id={item.id} level={item.level} label={item.label} />
+				</motion.li>
 			))}
-		</ul>
+		</motion.ul>
 	);
 };
