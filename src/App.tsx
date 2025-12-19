@@ -23,7 +23,7 @@ export interface ViewProps {
 function App() {
 	const [views, setViews] = useState<Record<string, View>>({
 		home: {
-			isActive: true,
+			isActive: false,
 			props: {},
 		},
 		skillset: {
