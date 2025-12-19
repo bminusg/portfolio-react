@@ -15,15 +15,10 @@ export const CoverView = ({ isActive }: { isActive: boolean }) => {
 
 	return (
 		<>
-			<video
-				src="video/output.webm"
-				playsInline
-				loop
-				muted
-				id="video"
-				preload="auto"
-				className="video"
-			/>
+			<video playsInline loop muted id="video" preload="auto" className="video">
+				<source src="video/output.webm" type="video/webm" />
+				<source src="video/output.mp4" type="video/mp4" />
+			</video>
 			<div className="home--content content flex flex-col gap-200 justify-center items-center">
 				<p className="mb-250">
 					Hey, my name is Benny Gebauer, and I am a passionate

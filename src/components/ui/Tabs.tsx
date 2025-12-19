@@ -12,6 +12,7 @@ export type TabsProps<T, ID extends string = string> = {
 	activeTabID: string | null;
 	children: ReactNode;
 	onTabChange: (item: TabsItem<T, ID>) => void;
+	minHeight?: string;
 };
 
 export const Tabs = <T,>({
@@ -19,13 +20,14 @@ export const Tabs = <T,>({
 	children,
 	activeTabID,
 	onTabChange,
+	minHeight = "0",
 }: TabsProps<T>) => {
-	function changeTab(id: string) {
+	const changeTab = (id: string) => {
 		const item = items.find((item) => item.id === id);
 
 		if (!item) return;
 		onTabChange(item);
-	}
+	};
 
 	return (
 		<div className="tabs">
@@ -45,7 +47,9 @@ export const Tabs = <T,>({
 				))}
 			</nav>
 
-			<div className="tabs--content">{children}</div>
+			<div className="tabs--content" style={{ minHeight }}>
+				{children}
+			</div>
 		</div>
 	);
 };

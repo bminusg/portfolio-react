@@ -23,8 +23,8 @@ export const Header = ({ views }: { views: Record<string, View> }) => {
 					type="button"
 				>
 					<div className="header--icon header--logo-icon">
-						<Icon name="logo" size="16px" fill="var(--color-primary-700)" />
-						<Icon name="logo" size="16px" fill="var(--color-primary-300)" />
+						<Icon name="logo" size="24px" fill="var(--color-primary-600)" />
+						<Icon name="logo" size="24px" fill="var(--color-primary-300)" />
 					</div>
 				</button>
 
@@ -36,7 +36,7 @@ export const Header = ({ views }: { views: Record<string, View> }) => {
 					>
 						<div className="header--icon header--nav-icon">
 							<i className="icon flex">
-								<BrainCircuit size="16" color="var(--color-primary-700)" />
+								<BrainCircuit size="16" color="var(--color-primary-600)" />
 							</i>
 							<i className="icon flex">
 								<BrainCircuit size="16" color="var(--color-primary-300)" />
@@ -51,7 +51,7 @@ export const Header = ({ views }: { views: Record<string, View> }) => {
 					>
 						<div className="header--icon header--nav-icon">
 							<i className="icon flex">
-								<BriefcaseBusiness size="16" color="var(--color-primary-700)" />
+								<BriefcaseBusiness size="16" color="var(--color-primary-600)" />
 							</i>
 							<i className="icon flex">
 								<BriefcaseBusiness size="16" color="var(--color-primary-300)" />
@@ -66,7 +66,7 @@ export const Header = ({ views }: { views: Record<string, View> }) => {
 					>
 						<div className="header--icon header--nav-icon">
 							<i className="icon flex">
-								<Contact size="16" color="var(--color-primary-700)" />
+								<Contact size="16" color="var(--color-primary-600)" />
 							</i>
 							<i className="icon flex">
 								<Contact size="16" color="var(--color-primary-300)" />

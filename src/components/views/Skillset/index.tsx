@@ -168,7 +168,14 @@ export const SkillsetView = ({ isActive }: { isActive: boolean }) => {
 		return activeTabID ?? skillset[0].id;
 	}, [isActive, activeTabID, skillset]);
 
-	// click handler:
+	const maxSkillItems = useMemo(
+		() =>
+			skillset
+				.map((item) => item.data.length)
+				.reduce((prev, acc) => Math.max(prev, acc)),
+		[skillset],
+	);
+
 	const setSkillTabContent = useCallback((item: TabsItem<Skill[]>) => {
 		setActiveTabID(item.id);
 	}, []);
@@ -206,6 +213,7 @@ export const SkillsetView = ({ isActive }: { isActive: boolean }) => {
 								items={skillset}
 								activeTabID={effectiveTabID}
 								onTabChange={setSkillTabContent}
+								minHeight={`calc(var(--gap-400) * ${maxSkillItems})`}
 							>
 								<SkillsetTabs items={skillset} activeID={effectiveTabID} />
 							</Tabs>
