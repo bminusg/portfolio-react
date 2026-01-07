@@ -1,6 +1,19 @@
 .contact
     &--txt
         flex: 0 1 var(--gap-750)
+        opacity: 0
 
     &--img
         flex: 0 1 var(--gap-750)
+        opacity: 0
+
+
+    &.is--active
+        .contact
+            &--txt
+                animation: slideInRight 0.8s cubic-bezier(0.25, 1, 0.5, 1) 0.4s forwards
+
+            &--img
+                animation: slideInLeft 0.8s cubic-bezier(0.25, 1, 0.5, 1) 0.4s forwards
+
+
